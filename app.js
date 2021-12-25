@@ -33,6 +33,12 @@ const app = Vue.createApp({
 			book.isFav = !book.isFav;
 		},
 	},
+	// computed property depend on other data. when the data changes, computed property will be changed
+	computed: {
+		filteredBooks() {
+			return this.books.filter((book) => book.isFav);
+		},
+	},
 });
 
 app.mount('#app');
