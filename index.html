@@ -9,18 +9,45 @@
 
     <script src="https://unpkg.com/vue@3.2.26"></script>
 
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #eee;
+            max-width: 960px;
+            margin: 20px auto;
+        }
+
+        li {
+            list-style: none;
+            background: #fff;
+            margin: 20px auto;
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        li.fav {
+            background: #ff9ed2;
+            color: #fff;
+        }
+    </style>
+
 </head>
 
 <body>
     <h1>Hello, Vue 3 </h1>
 
     <div id="app">
-        <!-- attribute binding -->
-        <a :href="url">Google</a> <br>
 
         <div v-if="showBooks">
             <ul>
-                <li v-for="book in books">
+                <li v-for="book in books" :class="{fav: book.isFav}">
                     <img :src="book.img" :alt="book.title">
                     <h3>{{book.title}}</h3>
                     <p>{{book.author}}</p>
